@@ -15,6 +15,9 @@ import {
   GitMerge,
   Share2,
 } from "lucide-react";
+import avatar1 from "@/assets/avatar-1.jpg";
+import avatar2 from "@/assets/avatar-2.jpg";
+import avatar3 from "@/assets/avatar-3.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -305,11 +308,16 @@ function Illustration() {
         </div>
         <div className="mt-3 flex items-center justify-between">
           <div className="flex -space-x-2">
-            {["oklch(0.7 0.1 30)", "oklch(0.75 0.1 350)", "oklch(0.55 0.05 260)"].map((c, i) => (
-              <div
+            {[avatar1, avatar2, avatar3].map((src, i) => (
+              <img
                 key={i}
-                className="hero-pop h-7 w-7 rounded-full border-2 border-white"
-                style={{ background: c, animationDelay: `${1700 + i * 120}ms` }}
+                src={src}
+                alt=""
+                loading="lazy"
+                width={28}
+                height={28}
+                className="hero-pop h-7 w-7 rounded-full border-2 border-white object-cover"
+                style={{ animationDelay: `${1700 + i * 120}ms` }}
               />
             ))}
           </div>
@@ -321,62 +329,78 @@ function Illustration() {
       </div>
 
       {/* Bottom stat cards */}
-      <div className="absolute bottom-2 left-2 right-0 z-10 flex items-center justify-between gap-3 px-4">
+      <div className="absolute bottom-2 left-2 right-0 z-10 flex items-center justify-between gap-4 px-4">
         {[
-          { c: "oklch(0.85 0.08 285)", l: "Clicks", v: "70k" },
-          { c: "oklch(0.88 0.06 220)", l: "Leads", v: "169" },
-          { c: "oklch(0.88 0.06 350)", l: "Sales", v: "$98" },
+          { c: "oklch(0.88 0.05 285)", l: "Clicks", v: "70k" },
+          { c: "oklch(0.92 0.04 220)", l: "Leads", v: "169" },
+          { c: "oklch(0.92 0.04 350)", l: "Sales", v: "$98" },
         ].map((s, i) => (
           <div
             key={s.l}
-            className="hero-rise flex flex-1 items-center gap-2 rounded-xl border border-slate-100 bg-white px-4 py-3 transition-transform duration-300 hover:-translate-y-0.5"
-            style={{ boxShadow: "var(--shadow-soft)", animationDelay: `${1800 + i * 120}ms` }}
+            className="hero-rise flex flex-1 items-center gap-3 rounded-2xl bg-white px-5 py-4 transition-transform duration-300 hover:-translate-y-0.5"
+            style={{
+              boxShadow: "0 10px 24px -14px oklch(0.4 0.06 270 / 0.18), 0 2px 4px -2px oklch(0.4 0.06 270 / 0.06)",
+              animationDelay: `${1800 + i * 120}ms`,
+            }}
           >
-            <span className="h-3 w-3 rounded" style={{ background: s.c }} />
-            <span className="text-sm text-muted-foreground">{s.l}</span>
-            <span className="ml-auto text-sm font-bold text-foreground">{s.v}</span>
+            <span className="h-3.5 w-3.5 rounded-[4px]" style={{ background: s.c }} />
+            <span className="text-[15px] text-slate-500">{s.l}</span>
+            <span className="ml-auto text-lg font-extrabold tracking-tight text-foreground">{s.v}</span>
           </div>
         ))}
       </div>
 
-      {/* Hand-drawn connector lines from report card down to the stat cards */}
+      {/* Thin gray rounded-bracket connector from report card down to the three stat cards */}
       <svg
         className="pointer-events-none absolute left-0 right-0 z-0"
-        style={{ top: "440px", height: "180px", width: "100%" }}
-        viewBox="0 0 600 180"
+        style={{ top: "440px", height: "170px", width: "100%" }}
+        viewBox="0 0 600 170"
         preserveAspectRatio="none"
         fill="none"
       >
-        {(() => {
-          const paths = [
-            { d: "M300 0 C 302 28, 298 56, 300 85", glow: "oklch(0.85 0.09 285 / 0.9)", delay: 1900 },
-            { d: "M300 85 C 260 88, 180 95, 135 115 C 115 124, 105 138, 105 158", glow: "oklch(0.86 0.08 300 / 0.9)", delay: 2150 },
-            { d: "M300 85 C 300 110, 300 135, 300 158", glow: "oklch(0.88 0.08 220 / 0.9)", delay: 2150 },
-            { d: "M300 85 C 340 88, 420 95, 465 115 C 485 124, 495 138, 495 158", glow: "oklch(0.88 0.07 350 / 0.95)", delay: 2150 },
-          ];
-          return paths.map((p, i) => (
-            <g key={i}>
-              {/* pastel glow underlay (draws in sync, then breathes) */}
-              <path
-                className="hero-draw-glow"
-                d={p.d}
-                stroke={p.glow}
-                strokeWidth="9"
-                strokeLinecap="round"
-                style={{ animationDelay: `${p.delay}ms, ${p.delay + 1400}ms` }}
-              />
-              {/* crisp ink line on top */}
-              <path
-                className="hero-draw"
-                d={p.d}
-                stroke="oklch(0.25 0.04 260)"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                style={{ animationDelay: `${p.delay}ms` }}
-              />
-            </g>
-          ));
-        })()}
+        {/* trunk */}
+        <path
+          className="hero-draw"
+          d="M300 0 L 300 70"
+          stroke="oklch(0.86 0.01 260)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          style={{ animationDelay: "1900ms" }}
+        />
+        {/* horizontal rail with rounded corners */}
+        <path
+          className="hero-draw"
+          d="M100 90 Q 100 70 120 70 L 480 70 Q 500 70 500 90"
+          stroke="oklch(0.86 0.01 260)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          style={{ animationDelay: "2050ms" }}
+        />
+        {/* drops to each card */}
+        <path
+          className="hero-draw"
+          d="M100 90 L 100 130"
+          stroke="oklch(0.86 0.01 260)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          style={{ animationDelay: "2300ms" }}
+        />
+        <path
+          className="hero-draw"
+          d="M300 70 L 300 130"
+          stroke="oklch(0.86 0.01 260)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          style={{ animationDelay: "2300ms" }}
+        />
+        <path
+          className="hero-draw"
+          d="M500 90 L 500 130"
+          stroke="oklch(0.86 0.01 260)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          style={{ animationDelay: "2300ms" }}
+        />
       </svg>
     </div>
   );
