@@ -232,25 +232,25 @@ function Illustration() {
         {/* Workflow area */}
         <div className="relative flex-1 p-6">
           <div className="flex flex-col items-center gap-0">
-            <WorkflowNode icon={<Zap className="h-3.5 w-3.5" />} label="Trigger" />
-            <Connector className="h-5" />
-            <WorkflowNode icon={<Mail className="h-3.5 w-3.5" />} label="Welcome email" />
-            <Connector className="h-5" />
-            <WorkflowNode icon={<GitMerge className="h-3.5 w-3.5" />} label="Condition" />
+            <WorkflowNode icon={<Zap className="h-3.5 w-3.5" />} label="Trigger" delay={400} />
+            <Connector className="h-5" delay={550} />
+            <WorkflowNode icon={<Mail className="h-3.5 w-3.5" />} label="Welcome email" delay={650} />
+            <Connector className="h-5" delay={800} />
+            <WorkflowNode icon={<GitMerge className="h-3.5 w-3.5" />} label="Condition" delay={900} />
 
             {/* Branch */}
             <div className="relative mt-3 flex w-full justify-center gap-8">
-              <div className="flex flex-col items-center">
+              <div className="hero-pop flex flex-col items-center" style={{ animationDelay: "1050ms" }}>
                 <span className="mb-1 rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
                   YES
                 </span>
-                <WorkflowNode icon={<Mail className="h-3.5 w-3.5" />} label="Reminder email" />
+                <WorkflowNode icon={<Mail className="h-3.5 w-3.5" />} label="Reminder email" delay={1100} />
               </div>
-              <div className="flex flex-col items-center">
+              <div className="hero-pop flex flex-col items-center" style={{ animationDelay: "1150ms" }}>
                 <span className="mb-1 rounded bg-rose-100 px-1.5 py-0.5 text-[10px] font-semibold text-rose-700">
                   NO
                 </span>
-                <WorkflowNode icon={<Mail className="h-3.5 w-3.5" />} label="Reminder email" />
+                <WorkflowNode icon={<Mail className="h-3.5 w-3.5" />} label="Reminder email" delay={1200} />
               </div>
             </div>
           </div>
