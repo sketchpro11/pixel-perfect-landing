@@ -15,6 +15,9 @@ import {
   GitMerge,
   Share2,
 } from "lucide-react";
+import avatar1 from "@/assets/avatar-1.jpg";
+import avatar2 from "@/assets/avatar-2.jpg";
+import avatar3 from "@/assets/avatar-3.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
