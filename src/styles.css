@@ -202,6 +202,32 @@
 @keyframes hero-draw {
   to { stroke-dashoffset: 0; }
 }
+@keyframes hero-signal-travel {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 118;
+  }
+  10% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes hero-signal-glow {
+  0%, 100% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  18%, 72% {
+    opacity: 0.9;
+    filter: blur(7px);
+  }
+}
 @keyframes hero-glow-breathe {
   0%, 100% { opacity: 0.55; filter: blur(6px); }
   50%      { opacity: 0.95; filter: blur(8px); }
@@ -219,6 +245,21 @@
   animation:
     hero-draw 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards,
     hero-glow-breathe 3.2s ease-in-out infinite 1.4s;
+}
+.hero-signal {
+  stroke-dasharray: 18 100;
+  stroke-dashoffset: 118;
+  opacity: 0;
+  animation: hero-signal-travel 1.2s cubic-bezier(0.42, 0, 0.2, 1) infinite;
+}
+.hero-signal-glow {
+  stroke-dasharray: 18 100;
+  stroke-dashoffset: 118;
+  opacity: 0;
+  filter: blur(6px);
+  animation:
+    hero-signal-travel 1.2s cubic-bezier(0.42, 0, 0.2, 1) infinite,
+    hero-signal-glow 1.2s ease-out infinite;
 }
 @keyframes hero-cta-pulse {
   0%, 100% { box-shadow: 0 10px 24px -8px oklch(0.5 0.24 285 / 0.55), inset 0 1px 0 0 oklch(1 0 0 / 0.25), 0 0 0 0 oklch(0.6 0.22 285 / 0.45); }
@@ -261,7 +302,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-rise, .hero-fade, .hero-pop, .hero-float, .hero-float-alt,
-  .hero-glow, .hero-cta, .hero-connector, .hero-draw, .hero-draw-glow, .hero-icon-shimmer::after {
+  .hero-glow, .hero-cta, .hero-connector, .hero-draw, .hero-draw-glow, .hero-signal, .hero-signal-glow, .hero-icon-shimmer::after {
     animation: none !important;
     opacity: 1 !important;
   }
