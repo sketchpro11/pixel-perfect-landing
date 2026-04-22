@@ -62,9 +62,31 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.18 0.04 260);
+
+  /* Brand */
+  --brand-purple: oklch(0.58 0.22 285);
+  --brand-purple-dark: oklch(0.5 0.24 285);
+  --brand-violet: oklch(0.65 0.2 300);
+  --brand-pink: oklch(0.78 0.13 350);
+
+  /* Soft chip / accent */
+  --chip-lavender: oklch(0.93 0.04 285);
+  --chip-pink: oklch(0.94 0.04 350);
+  --chip-blue: oklch(0.94 0.03 240);
+
+  /* Gradients */
+  --gradient-cta: linear-gradient(180deg, oklch(0.62 0.22 285), oklch(0.5 0.24 288));
+  --gradient-icon: linear-gradient(135deg, oklch(0.78 0.14 350), oklch(0.62 0.22 295));
+  --gradient-glow-pink: radial-gradient(closest-side, oklch(0.92 0.06 350 / 0.55), transparent 70%);
+  --gradient-glow-blue: radial-gradient(closest-side, oklch(0.9 0.06 270 / 0.5), transparent 70%);
+
+  /* Shadows */
+  --shadow-card: 0 10px 30px -12px oklch(0.4 0.06 270 / 0.18), 0 2px 6px -2px oklch(0.4 0.06 270 / 0.08);
+  --shadow-cta: 0 10px 24px -8px oklch(0.5 0.24 285 / 0.55), inset 0 1px 0 0 oklch(1 0 0 / 0.25);
+  --shadow-soft: 0 6px 20px -10px oklch(0.4 0.06 270 / 0.15);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
