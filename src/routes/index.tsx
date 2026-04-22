@@ -159,15 +159,17 @@ function WorkflowNode({
   icon,
   label,
   className = "",
+  delay = 0,
 }: {
   icon: React.ReactNode;
   label: string;
   className?: string;
+  delay?: number;
 }) {
   return (
     <div
-      className={`flex w-[180px] flex-col gap-2 rounded-lg border border-slate-200/80 bg-white px-3 py-2.5 ${className}`}
-      style={{ boxShadow: "0 2px 6px -2px oklch(0.4 0.06 270 / 0.08)" }}
+      className={`hero-pop flex w-[180px] flex-col gap-2 rounded-lg border border-slate-200/80 bg-white px-3 py-2.5 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-md ${className}`}
+      style={{ boxShadow: "0 2px 6px -2px oklch(0.4 0.06 270 / 0.08)", animationDelay: `${delay}ms` }}
     >
       <div className="flex items-center gap-2">
         <span className="text-slate-500">{icon}</span>
@@ -178,8 +180,13 @@ function WorkflowNode({
   );
 }
 
-function Connector({ className = "" }: { className?: string }) {
-  return <div className={`w-px bg-slate-300 ${className}`} />;
+function Connector({ className = "", delay = 0 }: { className?: string; delay?: number }) {
+  return (
+    <div
+      className={`hero-connector w-px ${className}`}
+      style={{ animationDelay: `${delay}ms` }}
+    />
+  );
 }
 
 function Illustration() {
