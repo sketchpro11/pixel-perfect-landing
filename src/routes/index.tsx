@@ -329,20 +329,23 @@ function Illustration() {
       </div>
 
       {/* Bottom stat cards */}
-      <div className="absolute bottom-2 left-2 right-0 z-10 flex items-center justify-between gap-3 px-4">
+      <div className="absolute bottom-2 left-2 right-0 z-10 flex items-center justify-between gap-4 px-4">
         {[
-          { c: "oklch(0.85 0.08 285)", l: "Clicks", v: "70k" },
-          { c: "oklch(0.88 0.06 220)", l: "Leads", v: "169" },
-          { c: "oklch(0.88 0.06 350)", l: "Sales", v: "$98" },
+          { c: "oklch(0.88 0.05 285)", l: "Clicks", v: "70k" },
+          { c: "oklch(0.92 0.04 220)", l: "Leads", v: "169" },
+          { c: "oklch(0.92 0.04 350)", l: "Sales", v: "$98" },
         ].map((s, i) => (
           <div
             key={s.l}
-            className="hero-rise flex flex-1 items-center gap-2 rounded-xl border border-slate-100 bg-white px-4 py-3 transition-transform duration-300 hover:-translate-y-0.5"
-            style={{ boxShadow: "var(--shadow-soft)", animationDelay: `${1800 + i * 120}ms` }}
+            className="hero-rise flex flex-1 items-center gap-3 rounded-2xl bg-white px-5 py-4 transition-transform duration-300 hover:-translate-y-0.5"
+            style={{
+              boxShadow: "0 10px 24px -14px oklch(0.4 0.06 270 / 0.18), 0 2px 4px -2px oklch(0.4 0.06 270 / 0.06)",
+              animationDelay: `${1800 + i * 120}ms`,
+            }}
           >
-            <span className="h-3 w-3 rounded" style={{ background: s.c }} />
-            <span className="text-sm text-muted-foreground">{s.l}</span>
-            <span className="ml-auto text-sm font-bold text-foreground">{s.v}</span>
+            <span className="h-3.5 w-3.5 rounded-[4px]" style={{ background: s.c }} />
+            <span className="text-[15px] text-slate-500">{s.l}</span>
+            <span className="ml-auto text-lg font-extrabold tracking-tight text-foreground">{s.v}</span>
           </div>
         ))}
       </div>
