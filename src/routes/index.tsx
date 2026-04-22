@@ -194,18 +194,18 @@ function Illustration() {
     <div className="relative h-[640px] w-full">
       {/* Glows */}
       <div
-        className="pointer-events-none absolute -bottom-10 -left-20 h-[400px] w-[400px]"
+        className="hero-glow pointer-events-none absolute -bottom-10 -left-20 h-[400px] w-[400px]"
         style={{ background: "var(--gradient-glow-pink)" }}
       />
       <div
-        className="pointer-events-none absolute -bottom-10 right-0 h-[450px] w-[500px]"
-        style={{ background: "var(--gradient-glow-blue)" }}
+        className="hero-glow pointer-events-none absolute -bottom-10 right-0 h-[450px] w-[500px]"
+        style={{ background: "var(--gradient-glow-blue)", animationDelay: "1.5s" }}
       />
 
       {/* Main app card */}
       <div
-        className="absolute left-4 right-0 top-4 flex h-[400px] rounded-2xl border border-slate-200/70 bg-white"
-        style={{ boxShadow: "var(--shadow-card)" }}
+        className="hero-rise absolute left-4 right-0 top-4 flex h-[400px] rounded-2xl border border-slate-200/70 bg-white"
+        style={{ boxShadow: "var(--shadow-card)", animationDelay: "150ms" }}
       >
         {/* Sidebar */}
         <div className="flex w-[44%] flex-col gap-5 border-r border-slate-100 p-5">
