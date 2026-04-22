@@ -291,8 +291,8 @@ function Illustration() {
 
       {/* Active workflow card */}
       <div
-        className="absolute left-[24%] top-[340px] z-30 w-[360px] rounded-2xl border border-slate-100 bg-white p-4"
-        style={{ boxShadow: "0 20px 40px -16px oklch(0.4 0.06 270 / 0.25)" }}
+        className="hero-rise absolute left-[24%] top-[340px] z-30 w-[360px] rounded-2xl border border-slate-100 bg-white p-4 transition-transform duration-300 hover:-translate-y-1"
+        style={{ boxShadow: "0 20px 40px -16px oklch(0.4 0.06 270 / 0.25)", animationDelay: "1500ms" }}
       >
         <div className="flex items-start gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100">
@@ -308,12 +308,12 @@ function Illustration() {
             {["oklch(0.7 0.1 30)", "oklch(0.75 0.1 350)", "oklch(0.55 0.05 260)"].map((c, i) => (
               <div
                 key={i}
-                className="h-7 w-7 rounded-full border-2 border-white"
-                style={{ background: c }}
+                className="hero-pop h-7 w-7 rounded-full border-2 border-white"
+                style={{ background: c, animationDelay: `${1700 + i * 120}ms` }}
               />
             ))}
           </div>
-          <button className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white">
+          <button className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white transition-transform duration-200 hover:scale-105">
             <Share2 className="h-3 w-3" />
             Share report
           </button>
@@ -326,11 +326,11 @@ function Illustration() {
           { c: "oklch(0.85 0.08 285)", l: "Clicks", v: "70k" },
           { c: "oklch(0.88 0.06 220)", l: "Leads", v: "169" },
           { c: "oklch(0.88 0.06 350)", l: "Sales", v: "$98" },
-        ].map((s) => (
+        ].map((s, i) => (
           <div
             key={s.l}
-            className="flex flex-1 items-center gap-2 rounded-xl border border-slate-100 bg-white px-4 py-3"
-            style={{ boxShadow: "var(--shadow-soft)" }}
+            className="hero-rise flex flex-1 items-center gap-2 rounded-xl border border-slate-100 bg-white px-4 py-3 transition-transform duration-300 hover:-translate-y-0.5"
+            style={{ boxShadow: "var(--shadow-soft)", animationDelay: `${1800 + i * 120}ms` }}
           >
             <span className="h-3 w-3 rounded" style={{ background: s.c }} />
             <span className="text-sm text-muted-foreground">{s.l}</span>
