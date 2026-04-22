@@ -80,7 +80,7 @@ function Nav() {
 function GradientIcon({ size = 64 }: { size?: number }) {
   return (
     <span
-      className="inline-flex items-center justify-center rounded-2xl align-middle text-white"
+      className="hero-icon-shimmer hero-float inline-flex items-center justify-center rounded-2xl align-middle text-white"
       style={{
         background: "var(--gradient-icon)",
         width: size,
@@ -88,7 +88,7 @@ function GradientIcon({ size = 64 }: { size?: number }) {
         boxShadow: "0 8px 20px -8px oklch(0.6 0.22 320 / 0.5)",
       }}
     >
-      <TrendingUp className="h-1/2 w-1/2" strokeWidth={2.5} />
+      <TrendingUp className="h-1/2 w-1/2 relative z-10" strokeWidth={2.5} />
     </span>
   );
 }
