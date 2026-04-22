@@ -308,11 +308,16 @@ function Illustration() {
         </div>
         <div className="mt-3 flex items-center justify-between">
           <div className="flex -space-x-2">
-            {["oklch(0.7 0.1 30)", "oklch(0.75 0.1 350)", "oklch(0.55 0.05 260)"].map((c, i) => (
-              <div
+            {[avatar1, avatar2, avatar3].map((src, i) => (
+              <img
                 key={i}
-                className="hero-pop h-7 w-7 rounded-full border-2 border-white"
-                style={{ background: c, animationDelay: `${1700 + i * 120}ms` }}
+                src={src}
+                alt=""
+                loading="lazy"
+                width={28}
+                height={28}
+                className="hero-pop h-7 w-7 rounded-full border-2 border-white object-cover"
+                style={{ animationDelay: `${1700 + i * 120}ms` }}
               />
             ))}
           </div>
