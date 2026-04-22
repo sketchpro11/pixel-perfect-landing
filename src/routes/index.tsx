@@ -98,15 +98,18 @@ function LeftColumn() {
     <div className="flex flex-col">
       {/* Pill */}
       <div
-        className="inline-flex w-fit items-center gap-2 rounded-full border border-black/5 bg-white px-3.5 py-1.5"
-        style={{ boxShadow: "var(--shadow-soft)" }}
+        className="hero-rise inline-flex w-fit items-center gap-2 rounded-full border border-black/5 bg-white px-3.5 py-1.5"
+        style={{ boxShadow: "var(--shadow-soft)", animationDelay: "0ms" }}
       >
         <Sparkles className="h-3.5 w-3.5" style={{ color: "var(--brand-purple)" }} fill="currentColor" />
         <span className="text-sm font-medium text-foreground">Made for smarter decisions</span>
       </div>
 
       {/* Headline */}
-      <h1 className="mt-7 text-[64px] font-bold leading-[1.05] tracking-[-0.02em] text-foreground">
+      <h1
+        className="hero-rise mt-7 text-[64px] font-bold leading-[1.05] tracking-[-0.02em] text-foreground"
+        style={{ animationDelay: "120ms" }}
+      >
         Smarter marketing
         <br />
         decisions <GradientIcon /> powered
@@ -115,14 +118,17 @@ function LeftColumn() {
       </h1>
 
       {/* Sub */}
-      <p className="mt-7 max-w-[480px] text-lg leading-relaxed text-muted-foreground">
+      <p
+        className="hero-rise mt-7 max-w-[480px] text-lg leading-relaxed text-muted-foreground"
+        style={{ animationDelay: "240ms" }}
+      >
         Turn your marketing data into clear insights, better decisions, and continuously optimized.
       </p>
 
       {/* CTA */}
       <button
-        className="mt-8 inline-flex w-fit items-center gap-2 rounded-xl px-5 py-3 text-[15px] font-semibold text-white"
-        style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)" }}
+        className="hero-rise hero-cta mt-8 inline-flex w-fit items-center gap-2 rounded-xl px-5 py-3 text-[15px] font-semibold text-white transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98]"
+        style={{ background: "var(--gradient-cta)", boxShadow: "var(--shadow-cta)", animationDelay: "360ms" }}
       >
         See a demo
         <ArrowUpRight className="h-4 w-4" strokeWidth={2.5} />
@@ -134,8 +140,8 @@ function LeftColumn() {
           { v: "5k+", l: "Campaigns optimized" },
           { v: "40%+", l: "Higher conversion" },
           { v: "3×", l: "Faster decisions" },
-        ].map((s) => (
-          <div key={s.l}>
+        ].map((s, i) => (
+          <div key={s.l} className="hero-rise" style={{ animationDelay: `${480 + i * 100}ms` }}>
             <div className="text-3xl font-bold tracking-tight text-foreground">{s.v}</div>
             <div className="mt-1 text-sm text-muted-foreground">{s.l}</div>
           </div>
