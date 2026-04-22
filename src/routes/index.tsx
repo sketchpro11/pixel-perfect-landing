@@ -358,6 +358,13 @@ function Illustration() {
         preserveAspectRatio="none"
         fill="none"
       >
+        <defs>
+          <linearGradient id="connectorSignalGradient" x1="100" y1="85" x2="500" y2="85" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="oklch(0.83 0.05 300 / 0.18)" />
+            <stop offset="50%" stopColor="oklch(0.86 0.1 260 / 0.95)" />
+            <stop offset="100%" stopColor="oklch(0.86 0.07 220 / 0.2)" />
+          </linearGradient>
+        </defs>
         {/* trunk */}
         <path
           className="hero-draw"
@@ -401,6 +408,68 @@ function Illustration() {
           strokeLinecap="round"
           style={{ animationDelay: "2300ms" }}
         />
+        <path
+          className="hero-signal-glow"
+          d="M300 0 L 300 70"
+          pathLength="100"
+          stroke="url(#connectorSignalGradient)"
+          strokeWidth="8"
+          strokeLinecap="round"
+          style={{ animationDelay: "3.45s" }}
+        />
+        <path
+          className="hero-signal"
+          d="M300 0 L 300 70"
+          pathLength="100"
+          stroke="url(#connectorSignalGradient)"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          style={{ animationDelay: "3.45s" }}
+        />
+        <path
+          className="hero-signal-glow"
+          d="M100 90 Q 100 70 120 70 L 480 70 Q 500 70 500 90"
+          pathLength="100"
+          stroke="url(#connectorSignalGradient)"
+          strokeWidth="8"
+          strokeLinecap="round"
+          style={{ animationDelay: "4.05s" }}
+        />
+        <path
+          className="hero-signal"
+          d="M100 90 Q 100 70 120 70 L 480 70 Q 500 70 500 90"
+          pathLength="100"
+          stroke="url(#connectorSignalGradient)"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          style={{ animationDelay: "4.05s" }}
+        />
+        {[
+          "M100 90 L 100 130",
+          "M300 70 L 300 130",
+          "M500 90 L 500 130",
+        ].map((path) => (
+          <g key={path}>
+            <path
+              className="hero-signal-glow"
+              d={path}
+              pathLength="100"
+              stroke="url(#connectorSignalGradient)"
+              strokeWidth="8"
+              strokeLinecap="round"
+              style={{ animationDelay: "4.55s" }}
+            />
+            <path
+              className="hero-signal"
+              d={path}
+              pathLength="100"
+              stroke="url(#connectorSignalGradient)"
+              strokeWidth="2.6"
+              strokeLinecap="round"
+              style={{ animationDelay: "4.55s" }}
+            />
+          </g>
+        ))}
       </svg>
     </div>
   );
