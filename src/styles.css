@@ -248,7 +248,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-rise, .hero-fade, .hero-pop, .hero-float, .hero-float-alt,
-  .hero-glow, .hero-cta, .hero-connector, .hero-icon-shimmer::after {
+  .hero-glow, .hero-cta, .hero-connector, .hero-draw, .hero-icon-shimmer::after {
     animation: none !important;
     opacity: 1 !important;
   }
