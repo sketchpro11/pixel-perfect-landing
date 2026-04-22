@@ -339,8 +339,51 @@ function Illustration() {
         ))}
       </div>
 
-      {/* faint connector line behind report card */}
-      <div className="absolute left-1/2 top-[400px] h-12 w-px bg-slate-200" />
+      {/* Hand-drawn connector lines from report card down to the stat cards */}
+      <svg
+        className="pointer-events-none absolute left-0 right-0 z-0"
+        style={{ top: "440px", height: "180px", width: "100%" }}
+        viewBox="0 0 600 180"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        {/* trunk down from report card */}
+        <path
+          className="hero-draw"
+          d="M300 0 C 302 28, 298 56, 300 85"
+          stroke="oklch(0.25 0.04 260)"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          style={{ animationDelay: "1900ms" }}
+        />
+        {/* left branch to Clicks */}
+        <path
+          className="hero-draw"
+          d="M300 85 C 260 88, 180 95, 135 115 C 115 124, 105 138, 105 158"
+          stroke="oklch(0.25 0.04 260)"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          style={{ animationDelay: "2150ms" }}
+        />
+        {/* center branch to Leads */}
+        <path
+          className="hero-draw"
+          d="M300 85 C 300 110, 300 135, 300 158"
+          stroke="oklch(0.25 0.04 260)"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          style={{ animationDelay: "2150ms" }}
+        />
+        {/* right branch to Sales */}
+        <path
+          className="hero-draw"
+          d="M300 85 C 340 88, 420 95, 465 115 C 485 124, 495 138, 495 158"
+          stroke="oklch(0.25 0.04 260)"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          style={{ animationDelay: "2150ms" }}
+        />
+      </svg>
     </div>
   );
 }
