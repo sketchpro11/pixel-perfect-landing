@@ -347,42 +347,36 @@ function Illustration() {
         preserveAspectRatio="none"
         fill="none"
       >
-        {/* trunk down from report card */}
-        <path
-          className="hero-draw"
-          d="M300 0 C 302 28, 298 56, 300 85"
-          stroke="oklch(0.25 0.04 260)"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          style={{ animationDelay: "1900ms" }}
-        />
-        {/* left branch to Clicks */}
-        <path
-          className="hero-draw"
-          d="M300 85 C 260 88, 180 95, 135 115 C 115 124, 105 138, 105 158"
-          stroke="oklch(0.25 0.04 260)"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          style={{ animationDelay: "2150ms" }}
-        />
-        {/* center branch to Leads */}
-        <path
-          className="hero-draw"
-          d="M300 85 C 300 110, 300 135, 300 158"
-          stroke="oklch(0.25 0.04 260)"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          style={{ animationDelay: "2150ms" }}
-        />
-        {/* right branch to Sales */}
-        <path
-          className="hero-draw"
-          d="M300 85 C 340 88, 420 95, 465 115 C 485 124, 495 138, 495 158"
-          stroke="oklch(0.25 0.04 260)"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          style={{ animationDelay: "2150ms" }}
-        />
+        {(() => {
+          const paths = [
+            { d: "M300 0 C 302 28, 298 56, 300 85", glow: "oklch(0.85 0.09 285 / 0.9)", delay: 1900 },
+            { d: "M300 85 C 260 88, 180 95, 135 115 C 115 124, 105 138, 105 158", glow: "oklch(0.86 0.08 300 / 0.9)", delay: 2150 },
+            { d: "M300 85 C 300 110, 300 135, 300 158", glow: "oklch(0.88 0.08 220 / 0.9)", delay: 2150 },
+            { d: "M300 85 C 340 88, 420 95, 465 115 C 485 124, 495 138, 495 158", glow: "oklch(0.88 0.07 350 / 0.95)", delay: 2150 },
+          ];
+          return paths.map((p, i) => (
+            <g key={i}>
+              {/* pastel glow underlay (draws in sync, then breathes) */}
+              <path
+                className="hero-draw-glow"
+                d={p.d}
+                stroke={p.glow}
+                strokeWidth="9"
+                strokeLinecap="round"
+                style={{ animationDelay: `${p.delay}ms, ${p.delay + 1400}ms` }}
+              />
+              {/* crisp ink line on top */}
+              <path
+                className="hero-draw"
+                d={p.d}
+                stroke="oklch(0.25 0.04 260)"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                style={{ animationDelay: `${p.delay}ms` }}
+              />
+            </g>
+          ));
+        })()}
       </svg>
     </div>
   );
