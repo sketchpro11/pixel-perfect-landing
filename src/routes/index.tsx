@@ -258,38 +258,32 @@ function Illustration() {
       </div>
 
       {/* Lincoln Curtis chip */}
-      <div className="absolute left-[34%] top-[140px] z-20">
+      <div
+        className="hero-pop hero-float absolute left-[34%] top-[140px] z-20"
+        style={{ animationDelay: "1300ms, 1.8s", animationFillMode: "forwards, none" }}
+      >
         <div
           className="relative rounded-full px-3 py-1 text-xs font-semibold text-foreground"
           style={{ background: "var(--chip-lavender)" }}
         >
           Lincoln Curtis
-          <svg
-            className="absolute -bottom-1.5 left-6"
-            width="10"
-            height="8"
-            viewBox="0 0 10 8"
-            fill="none"
-          >
+          <svg className="absolute -bottom-1.5 left-6" width="10" height="8" viewBox="0 0 10 8" fill="none">
             <path d="M5 8L0 0H10L5 8Z" fill="var(--chip-lavender)" />
           </svg>
         </div>
       </div>
 
       {/* Erin Lipshutz chip */}
-      <div className="absolute right-2 top-[260px] z-20">
+      <div
+        className="hero-pop hero-float-alt absolute right-2 top-[260px] z-20"
+        style={{ animationDelay: "1450ms, 2.2s" }}
+      >
         <div
           className="relative rounded-full px-3 py-1 text-xs font-semibold text-foreground"
           style={{ background: "var(--chip-pink)" }}
         >
           Erin Lipshutz
-          <svg
-            className="absolute -top-1.5 left-3 rotate-180"
-            width="10"
-            height="8"
-            viewBox="0 0 10 8"
-            fill="none"
-          >
+          <svg className="absolute -top-1.5 left-3 rotate-180" width="10" height="8" viewBox="0 0 10 8" fill="none">
             <path d="M5 8L0 0H10L5 8Z" fill="var(--chip-pink)" />
           </svg>
         </div>
